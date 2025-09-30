@@ -4,10 +4,11 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from .models import UploadDataset, ModelArtifact
 from .serializers import UploadDatasetSerializer, ModelArtifactSerializer
+from .tasks import train_model_task
 
 # Create your views here.
 class DatasetViewSet(viewsets.ModelViewSet):
-    queryset = UploadDataset.objects.all().order_by('-updated_at')
+    queryset = UploadDataset.objects.all().order_by('-uploaded_at')
     serializer_class = UploadDatasetSerializer
 
     def perform_create(self, serializer):
