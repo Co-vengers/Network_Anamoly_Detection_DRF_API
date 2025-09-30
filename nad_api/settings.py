@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest-framework',
+    'rest_framework',
     'corsheaders',
     'detection',
 ]
@@ -83,14 +83,25 @@ WSGI_APPLICATION = 'nad_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': os.getenv('NAME'),
+#         'USER': os.getenv('USER'),
+#         'PASSWORD': os.getenv('PASSWORD'),
+#         'HOST': os.getenv("HOST"),
+#         'PORT': os.getenv('PORT'),
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('NAME'),
-        'USER': os.getenv('USER'),
-        'PASSWORD': os.getenv('PASSWORD'),
-        'HOST': os.getenv("HOST"),
-        'PORT': os.getenv('PORT'),
+        'NAME': 'nad',
+        'USER': 'root',
+        'PASSWORD': 'Vyom2004r',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
