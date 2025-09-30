@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
 from .models import UploadDataset, ModelArtifact
 from .serializers import UploadDatasetSerializer, ModelArtifactSerializer
 from .tasks import train_model_task
@@ -10,6 +11,7 @@ from .tasks import train_model_task
 class DatasetViewSet(viewsets.ModelViewSet):
     queryset = UploadDataset.objects.all().order_by('-uploaded_at')
     serializer_class = UploadDatasetSerializer
+    permission_classes = [IsAuthenticated]
 
     def perform_create(self, serializer):
         serializer.save(uploaded_by=self.request.user)
