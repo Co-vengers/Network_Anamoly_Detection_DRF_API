@@ -57,8 +57,10 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 
-CORS_ALLOW_ALL_ORIGIN = False
-CORS_ALLOWED_ORIGIN = []    #frontend URI
+CORS_ALLOW_ALL_ORIGINS = False
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+]    
 
 ROOT_URLCONF = 'nad_api.urls'
 
@@ -83,25 +85,14 @@ WSGI_APPLICATION = 'nad_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': os.getenv('NAME'),
-#         'USER': os.getenv('USER'),
-#         'PASSWORD': os.getenv('PASSWORD'),
-#         'HOST': os.getenv("HOST"),
-#         'PORT': os.getenv('PORT'),
-#     }
-# }
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'nad',
-        'USER': 'root',
-        'PASSWORD': 'Vyom2004r',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'NAME': os.getenv('NAME'),
+        'USER': os.getenv('USER'),
+        'PASSWORD': os.getenv('PASSWORD'),
+        'HOST': os.getenv("HOST"),
+        'PORT': os.getenv('PORT'),
     }
 }
 
