@@ -5,3 +5,5 @@ __pycache/
 nad_api/__pycache__/
 detection/__pycache__/
 detection/migrations/
+Datasets/
+models/
