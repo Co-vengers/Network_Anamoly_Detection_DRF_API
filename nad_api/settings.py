@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-i4-uze_jt#l7wd6b$5$cu-4=ng(wi*0hzmpq_7$@jb+8^+#hv!'
+SECRET_KEY = os.getenv('secret_key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -59,7 +59,7 @@ MIDDLEWARE = [
 
 CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
+    os.getenv('cors_allowed_origin'),
 ]    
 
 ROOT_URLCONF = 'nad_api.urls'
@@ -121,7 +121,7 @@ REST_FRAMEWORK = {
     )
 }
 
-CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_BROKER_URL = os.getenv('celery_broker_url')
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
